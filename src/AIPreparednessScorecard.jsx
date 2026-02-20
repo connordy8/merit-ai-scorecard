@@ -13,31 +13,36 @@ const RISKS = {
   external: [
     {
       rank: 1,
-      label: "Jobs change faster than we can keep up",
-      detail: "There are jobs available to our learners, but they're evolving faster than we can update our tracks. The role we trained someone for six months ago looks meaningfully different today.",
+      label: "Our training falls behind the job market",
+      detail: "The jobs are out there, but they're changing faster than we can update our tracks. What employers need today isn't what they needed six months ago. If we can't keep pace with how roles are evolving, we end up training people for yesterday's jobs.",
     },
     {
       rank: 2,
+      label: "Our alumni's skills have a short shelf life",
+      detail: "Someone graduates from our program and within a year, the skills they learned are already outdated. This isn't a program quality problem — it's a pace-of-change problem. If the careers we train people for keep shifting underneath them, our outcomes stop holding up and our reputation takes the hit.",
+    },
+    {
+      rank: 3,
       label: "AI supplants human coaching",
       detail: "AI doesn't just proliferate as an alternative — it actually gets as good as, or better than, our human coaches at the core things we do. The line we've drawn in the sand — that human coaches are meaningfully better — stops being true. This is the most direct threat to our core value proposition.",
     },
     {
-      rank: 3,
+      rank: 4,
       label: "Part of our approach becomes irrelevant",
       detail: "There are failure points throughout the model that could make it stop working — the tech and touch model, the tools we use, our distribution channels. We don't know which part breaks first. Any one of them becoming uncompetitive could undermine the whole thing.",
     },
     {
-      rank: 4,
+      rank: 5,
       label: "Not enough jobs to place learners in",
       detail: "AI reduces the number of entry-level roles our learners are trained for. It's not that the jobs change — it's that there aren't enough of them. Placement rates drop not because of program quality, but because the demand side shrinks.",
     },
     {
-      rank: 5,
+      rank: 6,
       label: "Our economic model stops working",
       detail: "Learners become unwilling to take on a loan when they're uncertain about job outcomes. B2B deals with employers dry up as hiring volumes shrink. The funding structures that allow us to offer $0 upfront training become harder to sustain.",
     },
     {
-      rank: 6,
+      rank: 7,
       label: "A new competitor builds what we do, but AI-native from day one",
       detail: "Someone builds an AI-first workforce training program from scratch — no legacy systems, no existing staff model, no institutional inertia. They can offer personalized coaching through AI agents at a fraction of our cost, iterate on curriculum in days, and scale to hundreds of thousands of learners without scaling headcount. They don't have to transform — they just have to build.",
     },
@@ -77,7 +82,7 @@ const criteria = [
     ],
     icon: "⚡",
     accent: "#2DD7B9",
-    mitigates: ["Jobs change faster than we can keep up", "Part of our approach becomes irrelevant"],
+    mitigates: ["Our training falls behind the job market", "Part of our approach becomes irrelevant"],
   },
   {
     rank: 2,
@@ -111,7 +116,7 @@ const criteria = [
     ],
     icon: "🔧",
     accent: "#2EC4B6",
-    mitigates: ["Jobs change faster than we can keep up", "Not enough jobs to place learners in"],
+    mitigates: ["Our alumni's skills have a short shelf life", "Not enough jobs to place learners in"],
   },
   {
     rank: 4,
@@ -145,7 +150,7 @@ const criteria = [
     ],
     icon: "🤖",
     accent: "#06A77D",
-    mitigates: ["Jobs change faster than we can keep up", "Part of our approach becomes irrelevant"],
+    mitigates: ["Our alumni's skills have a short shelf life", "Part of our approach becomes irrelevant"],
   },
   {
     rank: 6,
@@ -162,7 +167,7 @@ const criteria = [
     ],
     icon: "🏃",
     accent: "#FF6B6B",
-    mitigates: ["Jobs change faster than we can keep up", "Our economic model stops working"],
+    mitigates: ["Our training falls behind the job market", "Our economic model stops working"],
   },
   {
     rank: 7,
@@ -196,7 +201,7 @@ const criteria = [
     ],
     icon: "🧠",
     accent: "#E040FB",
-    mitigates: ["Jobs change faster than we can keep up", "Part of our approach becomes irrelevant"],
+    mitigates: ["Our alumni's skills have a short shelf life", "Part of our approach becomes irrelevant"],
   },
   {
     rank: 9,
@@ -213,7 +218,7 @@ const criteria = [
     ],
     icon: "🤝",
     accent: "#00B4D8",
-    mitigates: ["Jobs change faster than we can keep up", "Our economic model stops working"],
+    mitigates: ["Our training falls behind the job market", "Our economic model stops working"],
   },
   {
     rank: 10,
