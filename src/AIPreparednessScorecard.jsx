@@ -36,17 +36,27 @@ const RISKS = {
       label: "Our economic model stops working",
       detail: "Learners become unwilling to take on a loan when they're uncertain about job outcomes. B2B deals with employers dry up as hiring volumes shrink. The funding structures that allow us to offer $0 upfront training become harder to sustain.",
     },
+    {
+      rank: 6,
+      label: "A new competitor builds what we do, but AI-native from day one",
+      detail: "Someone builds an AI-first workforce training program from scratch — no legacy systems, no existing staff model, no institutional inertia. They can offer personalized coaching through AI agents at a fraction of our cost, iterate on curriculum in days, and scale to hundreds of thousands of learners without scaling headcount. They don't have to transform — they just have to build.",
+    },
   ],
   internal: [
     {
       rank: 1,
-      label: "We aren't agile enough",
-      detail: "We move too slowly. The external shocks pile up faster than we can respond — we can't adjust our staffing, retool our economic model, or redirect programs fast enough. This isn't one specific failure; it's what happens when all the other risks compound and we don't have the org muscle to keep up.",
+      label: "We can't move fast enough",
+      detail: "The external shocks pile up faster than we can respond. We can't adjust staffing, retool the economic model, or redirect programs quickly enough. Every major change requires months of planning, buy-in, and execution — and by the time we ship it, the problem has already shifted. This isn't one specific failure. It's what happens when all the other risks compound and we don't have the organizational muscle to keep up.",
     },
     {
       rank: 2,
-      label: "The macro environment requires constant restructuring and we can't keep pace",
-      detail: "Changes in AI capabilities — in the tools, the labor market, the competitive landscape — require us to regularly make major shifts in how we're organized, what we're building, and how we operate. Doing that well, repeatedly, without destroying quality or culture, is genuinely hard.",
+      label: "We don't learn fast enough about AI",
+      detail: "As an organization, we aren't staying close enough to what AI can actually do right now. People across the org don't understand the latest tools or how they fit into their work. There's no real culture of experimentation or curiosity about AI. We fall behind — not because the technology isn't available, but because we aren't using it, and we aren't learning.",
+    },
+    {
+      rank: 3,
+      label: "We don't capture what makes us unique",
+      detail: "Every coaching interaction, learner milestone, and employer outcome that goes unrecorded is competitive advantage we're leaving on the table. If we don't systematically capture and structure the data behind what makes our model work, someone else will build a version of it — trained on their data, not ours — and we'll have nothing proprietary to fall back on.",
     },
   ],
 };
@@ -57,7 +67,7 @@ const criteria = [
     title: "Curriculum Velocity",
     subtitle: "How fast can we ship a new track?",
     description:
-      "Can we identify a viable new career, design the training, and enroll a first cohort in under 8 weeks? Can we kill a track that's no longer working just as fast? How do we create an org that launches new tracks faster than the rate at which our current ones are disrupted? We need to shorten our new track development timeline from 6+ months to less than two, with the goal of launching new tracks faster than the rate of disruption of our current ones.",
+      "Can we identify a viable new career, design the training, and enroll a first cohort in under 8 weeks? Can we kill a track that's no longer working just as fast? We need to shorten our new track development timeline from 6+ months to less than two, with the goal of launching new tracks faster than the rate at which our current ones are disrupted.",
     scoreDescriptions: [
       "Curriculum review happens once a year. No process for sunsetting tracks.",
       "Updates are possible but take 6-12 months and require a lot of buy-in.",
@@ -68,19 +78,23 @@ const criteria = [
     icon: "⚡",
     accent: "#2DD7B9",
     mitigates: ["Jobs change faster than we can keep up", "Part of our approach becomes irrelevant"],
+  },
+  {
+    rank: 2,
+    title: "Organizational Agility",
     subtitle: "Can we change directions in months, not years?",
     description:
-      "Adapting and thriving in the face of unimaginable change is the new currency of work. Our superpower needs to be Mystique's from X-Men — change itself. Startup urgency. Bias for action. The ability to reallocate budget mid-year, kill a failing program, and launch something new without a 6-month approval cycle. For gnarly technical problems? Scotch tape and bubble gum. By the time a 'proper' solution gets built, the underlying problem may have fundamentally changed. Quick fixes and manual workarounds beat sophisticated systems that arrive too late.",
+      "Startup urgency. Bias for action. The ability to reallocate budget mid-year, kill a failing program, and launch something new without a 6-month approval cycle. For gnarly technical problems? Scotch tape and bubble gum. By the time a 'proper' solution gets built, the underlying problem may have fundamentally changed. Quick fixes and manual workarounds beat sophisticated systems that arrive too late.",
     scoreDescriptions: [
-      "Annual planning cycles. Budget reallocation requires a lot of approvals. Change is treated as a disruption.",
+      "Annual planning cycles. Budget reallocation requires lots of approvals. Change is treated as a disruption.",
       "Major pivots run through committees and take 12+ months in practice.",
-      "Quarterly priorities resets. Small teams can pilot without org-wide sign-off. Budget can actually shift mid-year.",
-      "Real startup urgency norms. Leadership can kill and launch programs month-to-month. Scotch tape and bubble gum is a compliment here.",
+      "Quarterly priorities resets. Small teams can pilot without org-wide sign-off. Budget can shift mid-year.",
+      "Leadership can kill and launch programs month-to-month. Scotch tape and bubble gum is a compliment here.",
       "Continuous planning. Any team can go from idea to deployed in days. Budget is a living doc. The org moves at the pace of the market.",
     ],
     icon: "🔄",
     accent: "#3F6DE4",
-    mitigates: ["We aren't agile enough", "The macro environment requires constant restructuring and we can't keep pace"],
+    mitigates: ["We can't move fast enough", "A new competitor builds what we do, but AI-native from day one"],
   },
   {
     rank: 3,
@@ -114,14 +128,14 @@ const criteria = [
     ],
     icon: "💬",
     accent: "#8338EC",
-    mitigates: ["AI supplants human coaching", "The macro environment requires constant restructuring and we can't keep pace"],
+    mitigates: ["AI supplants human coaching", "A new competitor builds what we do, but AI-native from day one"],
   },
   {
     rank: 5,
     title: "AI-Native Pedagogy",
     subtitle: "Is AI baked in, or bolted on?",
     description:
-      "Every track needs to be reconceived around AI-augmented work — not just have an AI module added to the end of it. The question we should be asking about every piece of content: what does this task look like when the person doing it has an AI copilot? Graduates should be able to work alongside AI agents, evaluate AI outputs critically, and integrate AI tools into their specific job. If a grad leaves the program and has never worked with an AI tool in the context of their specific career, we've failed them.",
+      "Every track needs to be reconceived around AI-augmented work — not just have an AI module tacked on at the end. The question for every piece of content: what does this task look like when the person doing it has an AI copilot? Work is reorganizing around human-agent teams. Graduates need to be able to plan a task, delegate parts of it to an AI agent, verify the output, and iterate. If a grad leaves the program and has never worked with AI in the context of their specific career, we've failed them.",
     scoreDescriptions: [
       "AI is a standalone optional module if it exists at all. Core curriculum is unchanged.",
       "AI overview tacked onto each track, but not integrated into how the skills actually get taught.",
@@ -165,14 +179,14 @@ const criteria = [
     ],
     icon: "🛠️",
     accent: "#F7A325",
-    mitigates: ["We aren't agile enough", "The macro environment requires constant restructuring and we can't keep pace"],
+    mitigates: ["We can't move fast enough", "We don't learn fast enough about AI"],
   },
   {
     rank: 8,
     title: "Human Judgment Development",
     subtitle: "Are we making career athletes, or single-track specialists?",
     description:
-      "The technical skills our learners acquire today may not be relevant a few years from now. So we need to double down on metacognitive skills — learning how to learn, critical thinking, navigating fast-changing companies — over purely technical skills. We need to create career athletes that can thrive in any environment, not just the one they trained for. As AI gets better at more things, the scarcest skill becomes knowing when to override it — scoping the right problem, evaluating whether the output is actually correct, making a call under ambiguity.",
+      "The technical skills our learners acquire today may not be relevant a few years from now. The most durable skill in the AI economy is the ability to scope a problem clearly, delegate it to an AI, evaluate whether the output is any good, and make a call under ambiguity. These are management skills — and they matter more than any specific technical capability. We need to create career athletes who can thrive in any environment, not just the one they trained for. Our learners, who've spent years being resourceful in low-wage work, may have a natural advantage here over college grads who've never managed anyone.",
     scoreDescriptions: [
       "Purely technical training. No explicit focus on meta-skills or judgment.",
       "Soft skills workshop exists. Treated as supplementary, not core.",
@@ -216,7 +230,7 @@ const criteria = [
     ],
     icon: "🗄️",
     accent: "#FB8500",
-    mitigates: ["AI supplants human coaching", "Part of our approach becomes irrelevant"],
+    mitigates: ["AI supplants human coaching", "We don't capture what makes us unique"],
   },
 ];
 
