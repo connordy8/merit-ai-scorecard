@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/merit-ai-scorecard/static/js/main.a3b0708e.js",
+    "main.js": "/merit-ai-scorecard/static/js/main.7228649c.js",
     "index.html": "/merit-ai-scorecard/index.html",
-    "main.a3b0708e.js.map": "/merit-ai-scorecard/static/js/main.a3b0708e.js.map"
+    "main.7228649c.js.map": "/merit-ai-scorecard/static/js/main.7228649c.js.map"
   },
   "entrypoints": [
-    "static/js/main.a3b0708e.js"
+    "static/js/main.7228649c.js"
   ]
 }
