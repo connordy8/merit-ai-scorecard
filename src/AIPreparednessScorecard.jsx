@@ -19,7 +19,7 @@ const RISKS = {
     {
       rank: 2,
       label: "Our alumni's skills have a short shelf life",
-      detail: "Someone graduates from our program and within a year, the skills they learned are already outdated. This isn't a program quality problem — it's a pace-of-change problem. If the careers we train people for keep shifting underneath them, our outcomes stop holding up and our reputation takes the hit.",
+      detail: "Someone graduates from our program and within a year, the skills they learned are already outdated — or worse, the role itself has changed enough that they're losing their jobs or stalling out. This isn't a program quality problem — it's a pace-of-change problem. And it doesn't just hurt our reputation. It hits our mission directly. Placement, upward mobility, wage gains — that's the whole point. If those outcomes don't hold up over time, we're not delivering on the thing we exist to do.",
     },
     {
       rank: 3,
