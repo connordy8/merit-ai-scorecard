@@ -293,7 +293,7 @@ export default function Scorecard() {
                 Merit AI Preparedness
               </h1>
               <p style={{ color: MA_MID, marginTop: 8, fontSize: 14, maxWidth: 500, lineHeight: 1.65, marginBottom: 0 }}>
-                A look at the most meaningful shocks we should be prepared for, and a scorecard to evaluate how ready we are to withstand them.
+                A look at the shocks I think we should be most prepared for, and a scorecard to evaluate how ready we are to withstand them.
               </p>
               <div style={{ display: "flex", gap: 4, marginTop: 18 }}>
                 {tabs.map((t) => (
@@ -338,7 +338,7 @@ export default function Scorecard() {
         {view === "risks" && (
           <div>
             <p style={{ color: MA_MID, fontSize: 14, lineHeight: 1.75, maxWidth: 640, marginBottom: 8 }}>
-              Below are the most significant AI shocks to Merit America's core model, force-ranked by likelihood. In the "Score Criteria" tab, we score ourselves against how prepared we are to respond to each one.
+              Below are what I think are some of the most significant AI shocks to our model, loosely ranked by likelihood. In the "Score Criteria" tab, we can score ourselves against how prepared we are to respond to each one.
             </p>
             <p style={{ color: "#6B7280", fontSize: 13, lineHeight: 1.65, maxWidth: 640, marginBottom: 24 }}>
               External shocks are forces outside our control. Internal shocks are failures that emerge on their own if we don't build systems to prevent them.
