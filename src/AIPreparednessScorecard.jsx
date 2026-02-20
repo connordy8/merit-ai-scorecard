@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-const MA_ORANGE = "#F05A28";
-const MA_DARK = "#1B1F3A";
-const MA_MID = "#4A4E69";
-const MA_LIGHT = "#F7F6F3";
-const MA_BORDER = "#E5E3DE";
+const MA_PRIMARY = "#001846";
+const MA_TEAL = "#2DD7B9";
+const MA_BLUE = "#3F6DE4";
+const MA_DARK = "#001846";
+const MA_MID = "#313233";
+const MA_LIGHT = "#F5F5F5";
+const MA_BORDER = "#D7DBE7";
 const MA_WHITE = "#FFFFFF";
 
 const RISKS = {
@@ -64,7 +66,7 @@ const criteria = [
       "Near real-time labor market intelligence feeds curriculum. AI drafts new modules for human review in days. New tracks launch faster than old ones die. There's an actual sunset process.",
     ],
     icon: "⚡",
-    accent: "#F05A28",
+    accent: "#2DD7B9",
     mitigates: ["Jobs change faster than we can keep up", "Part of our approach becomes irrelevant"],
     subtitle: "Can we change directions in months, not years?",
     description:
@@ -77,7 +79,7 @@ const criteria = [
       "Continuous planning. Any team can go from idea to deployed in days. Budget is a living doc. The org moves at the pace of the market.",
     ],
     icon: "🔄",
-    accent: "#3A86FF",
+    accent: "#3F6DE4",
     mitigates: ["We aren't agile enough", "The macro environment requires constant restructuring and we can't keep pace"],
   },
   {
@@ -230,11 +232,11 @@ export default function Scorecard() {
   const pct = Math.round((totalScore / maxScore) * 100);
 
   const getRating = (pct) => {
-    if (pct >= 85) return { label: "World-Class", color: "#06A77D" };
-    if (pct >= 70) return { label: "Advanced", color: "#3A86FF" };
+    if (pct >= 85) return { label: "World-Class", color: "#2DD7B9" };
+    if (pct >= 70) return { label: "Advanced", color: "#3F6DE4" };
     if (pct >= 50) return { label: "Developing", color: "#F7A325" };
     if (pct >= 30) return { label: "Emerging", color: "#FF6B6B" };
-    return { label: "Not Ready", color: "#F05A28" };
+    return { label: "Not Ready", color: "#b32d2e" };
   };
 
   const rating = getRating(pct);
@@ -261,11 +263,11 @@ export default function Scorecard() {
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
-                <div style={{ width: 28, height: 28, background: MA_ORANGE, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: 28, height: 28, background: MA_TEAL, borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ width: 14, height: 14, background: "white", borderRadius: 2 }} />
                 </div>
-                <span style={{ fontSize: 12, fontWeight: 700, color: MA_ORANGE, letterSpacing: "0.05em", textTransform: "uppercase" }}>Merit America</span>
-                <span style={{ fontSize: 12, color: "#C0BDB8" }}>/</span>
+                <span style={{ fontSize: 12, fontWeight: 700, color: MA_TEAL, letterSpacing: "0.05em", textTransform: "uppercase" }}>Merit America</span>
+                <span style={{ fontSize: 12, color: "#9CA3AF" }}>/</span>
                 <span style={{ fontSize: 12, color: MA_MID }}>Internal</span>
               </div>
               <h1 style={{ fontSize: "clamp(20px, 3vw, 28px)", fontWeight: 700, margin: 0, color: MA_DARK, lineHeight: 1.25 }}>
@@ -279,8 +281,8 @@ export default function Scorecard() {
                   <button key={t.id} onClick={() => setView(t.id)}
                     style={{
                       padding: "6px 14px", borderRadius: 4,
-                      border: view === t.id ? `1.5px solid ${MA_ORANGE}` : `1.5px solid ${MA_BORDER}`,
-                      background: view === t.id ? MA_ORANGE : MA_WHITE,
+                      border: view === t.id ? `1.5px solid ${MA_TEAL}` : `1.5px solid ${MA_BORDER}`,
+                      background: view === t.id ? MA_TEAL : MA_WHITE,
                       color: view === t.id ? MA_WHITE : MA_MID,
                       fontSize: 12, fontWeight: 600, cursor: "pointer",
                       fontFamily: "'Helvetica Neue', Arial, sans-serif", transition: "all 0.15s",
@@ -293,17 +295,19 @@ export default function Scorecard() {
 
             {/* Score ring */}
             <div style={{ textAlign: "center", minWidth: 120 }}>
-              <svg width="110" height="110" style={{ transform: "rotate(-90deg)" }}>
-                <circle cx="55" cy="55" r="46" fill="none" stroke={MA_BORDER} strokeWidth="8" />
-                <circle cx="55" cy="55" r="46" fill="none" stroke={rating.color} strokeWidth="8"
-                  strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
-                  style={{ transition: "stroke-dashoffset 0.5s ease, stroke 0.3s" }} />
-              </svg>
-              <div style={{ marginTop: -90, height: 110, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ fontSize: 26, fontWeight: 700, color: MA_DARK, lineHeight: 1 }}>{pct}%</div>
-                <div style={{ fontSize: 10, color: "#AAA", marginTop: 3, fontFamily: "monospace" }}>{totalScore}/{maxScore}</div>
+              <div style={{ position: "relative", width: 110, height: 110, margin: "0 auto" }}>
+                <svg width="110" height="110" style={{ transform: "rotate(-90deg)" }}>
+                  <circle cx="55" cy="55" r="46" fill="none" stroke={MA_BORDER} strokeWidth="8" />
+                  <circle cx="55" cy="55" r="46" fill="none" stroke={rating.color} strokeWidth="8"
+                    strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={strokeDashoffset}
+                    style={{ transition: "stroke-dashoffset 0.5s ease, stroke 0.3s" }} />
+                </svg>
+                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ fontSize: 26, fontWeight: 700, color: MA_DARK, lineHeight: 1 }}>{pct}%</div>
+                  <div style={{ fontSize: 10, color: "#AAA", marginTop: 3, fontFamily: "monospace" }}>{totalScore}/{maxScore}</div>
+                </div>
               </div>
-              <div style={{ fontSize: 11, color: rating.color, fontWeight: 700, marginTop: 4 }}>{rating.label}</div>
+              <div style={{ fontSize: 11, color: rating.color, fontWeight: 700, marginTop: 6 }}>{rating.label}</div>
             </div>
           </div>
         </div>
@@ -317,7 +321,7 @@ export default function Scorecard() {
             <p style={{ color: MA_MID, fontSize: 14, lineHeight: 1.75, maxWidth: 640, marginBottom: 8 }}>
               Below are the most significant AI shocks to Merit America's core model, force-ranked by likelihood. In the "Score Criteria" tab, we score ourselves against how prepared we are to respond to each one.
             </p>
-            <p style={{ color: "#A0A099", fontSize: 13, lineHeight: 1.65, maxWidth: 640, marginBottom: 24 }}>
+            <p style={{ color: "#6B7280", fontSize: 13, lineHeight: 1.65, maxWidth: 640, marginBottom: 24 }}>
               External shocks are forces outside our control. Internal shocks are failures that emerge on their own if we don't build systems to prevent them.
             </p>
 
@@ -325,14 +329,14 @@ export default function Scorecard() {
               {/* External */}
               <div style={{ background: MA_WHITE, border: `1px solid ${MA_BORDER}`, borderRadius: 8, padding: 22 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: MA_ORANGE }} />
-                  <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: MA_ORANGE }}>External</span>
+                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: MA_TEAL }} />
+                  <span style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: MA_TEAL }}>External</span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                   {RISKS.external.map((r) => (
-                    <div key={r.rank} style={{ padding: "12px 13px", background: MA_LIGHT, borderRadius: 6, borderLeft: `3px solid ${MA_ORANGE}` }}>
+                    <div key={r.rank} style={{ padding: "12px 13px", background: MA_LIGHT, borderRadius: 6, borderLeft: `3px solid ${MA_TEAL}` }}>
                       <div style={{ display: "flex", gap: 8, alignItems: "flex-start", marginBottom: 5 }}>
-                        <span style={{ fontSize: 10, fontWeight: 700, color: MA_ORANGE, fontFamily: "monospace", marginTop: 2, minWidth: 16 }}>#{r.rank}</span>
+                        <span style={{ fontSize: 10, fontWeight: 700, color: MA_TEAL, fontFamily: "monospace", marginTop: 2, minWidth: 16 }}>#{r.rank}</span>
                         <span style={{ fontSize: 13, fontWeight: 600, color: MA_DARK }}>{r.label}</span>
                       </div>
                       <div style={{ fontSize: 12, color: MA_MID, lineHeight: 1.65, paddingLeft: 24 }}>{r.detail}</div>
@@ -372,7 +376,7 @@ export default function Scorecard() {
                     display: "flex", alignItems: "center", gap: 12, padding: "9px 0",
                     borderBottom: idx < criteria.length - 1 ? `1px solid ${MA_BORDER}` : "none"
                   }}>
-                    <div style={{ fontSize: 10, color: "#C0BDB8", fontFamily: "monospace", minWidth: 22 }}>#{c.rank}</div>
+                    <div style={{ fontSize: 10, color: "#9CA3AF", fontFamily: "monospace", minWidth: 22 }}>#{c.rank}</div>
                     <div style={{ fontSize: 14, minWidth: 22 }}>{c.icon}</div>
                     <div style={{ fontSize: 13, fontWeight: 600, color: MA_DARK, minWidth: 190 }}>{c.title}</div>
                     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
@@ -389,7 +393,7 @@ export default function Scorecard() {
             </div>
 
             <button onClick={() => setView("scorecard")} style={{
-              display: "block", margin: "0 auto", padding: "10px 24px", background: MA_ORANGE, border: "none",
+              display: "block", margin: "0 auto", padding: "10px 24px", background: MA_TEAL, border: "none",
               color: MA_WHITE, borderRadius: 4, cursor: "pointer", fontSize: 13, fontWeight: 600,
               fontFamily: "'Helvetica Neue', Arial, sans-serif",
             }}>
@@ -412,14 +416,14 @@ export default function Scorecard() {
                 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", cursor: "pointer" }}
                     onClick={() => setExpanded(isOpen ? null : c.rank)}>
-                    <div style={{ fontSize: 10, color: "#C0BDB8", fontFamily: "monospace", minWidth: 20 }}>
+                    <div style={{ fontSize: 10, color: "#9CA3AF", fontFamily: "monospace", minWidth: 20 }}>
                       {String(c.rank).padStart(2, "0")}
                     </div>
                     <div style={{ fontSize: 18, minWidth: 24 }}>{c.icon}</div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
                         <span style={{ fontWeight: 700, fontSize: 14, color: MA_DARK }}>{c.title}</span>
-                        <span style={{ fontSize: 12, color: "#A0A099", fontStyle: "italic" }}>{c.subtitle}</span>
+                        <span style={{ fontSize: 12, color: "#6B7280", fontStyle: "italic" }}>{c.subtitle}</span>
                       </div>
                       <div style={{ display: "flex", gap: 3, marginTop: 7 }}>
                         {[0,1,2,3,4].map((i) => (
@@ -435,9 +439,9 @@ export default function Scorecard() {
                     </div>
                     <div style={{ textAlign: "right", minWidth: 84 }}>
                       <div style={{ fontSize: 11, color: c.accent, fontWeight: 700 }}>{SCORE_LABELS[score]}</div>
-                      <div style={{ fontSize: 10, color: "#C0BDB8", fontFamily: "monospace" }}>{score}/4</div>
+                      <div style={{ fontSize: 10, color: "#9CA3AF", fontFamily: "monospace" }}>{score}/4</div>
                     </div>
-                    <div style={{ color: "#C0BDB8", fontSize: 10, transition: "transform 0.2s", transform: isOpen ? "rotate(90deg)" : "none" }}>▶</div>
+                    <div style={{ color: "#9CA3AF", fontSize: 10, transition: "transform 0.2s", transform: isOpen ? "rotate(90deg)" : "none" }}>▶</div>
                   </div>
 
                   {isOpen && (
@@ -467,13 +471,13 @@ export default function Scorecard() {
                               border: `2px solid ${score === i ? c.accent : MA_BORDER}`,
                               background: score === i ? c.accent : "transparent",
                               display: "flex", alignItems: "center", justifyContent: "center",
-                              fontSize: 9, color: score === i ? "white" : "#C0BDB8",
+                              fontSize: 9, color: score === i ? "white" : "#9CA3AF",
                               fontWeight: 700, fontFamily: "monospace",
                             }}>{i}</div>
                             <div>
                               <div style={{
                                 fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em",
-                                color: score === i ? c.accent : "#A0A099", marginBottom: 3
+                                color: score === i ? c.accent : "#6B7280", marginBottom: 3
                               }}>{SCORE_LABELS[i]}</div>
                               <div style={{ fontSize: 12, color: score === i ? MA_DARK : MA_MID, lineHeight: 1.65 }}>{desc}</div>
                             </div>
@@ -496,7 +500,7 @@ export default function Scorecard() {
                 Overall Score
               </div>
               <div style={{ fontSize: 24, fontWeight: 700, color: rating.color, marginBottom: 4 }}>{rating.label}</div>
-              <div style={{ color: "#A0A099", fontSize: 13, fontFamily: "monospace" }}>{totalScore} / {maxScore} · {pct}%</div>
+              <div style={{ color: "#6B7280", fontSize: 13, fontFamily: "monospace" }}>{totalScore} / {maxScore} · {pct}%</div>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(245px, 1fr))", gap: 8, marginBottom: 16 }}>
@@ -506,7 +510,7 @@ export default function Scorecard() {
                   <div key={c.rank} style={{ background: MA_WHITE, border: `1px solid ${MA_BORDER}`, borderRadius: 8, padding: 15 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 9 }}>
                       <div>
-                        <div style={{ fontSize: 10, color: "#C0BDB8", fontFamily: "monospace" }}>#{c.rank}</div>
+                        <div style={{ fontSize: 10, color: "#9CA3AF", fontFamily: "monospace" }}>#{c.rank}</div>
                         <div style={{ fontSize: 13, fontWeight: 600, color: MA_DARK, marginTop: 2 }}>{c.icon} {c.title}</div>
                       </div>
                       <div style={{ fontSize: 18, fontWeight: 700, color: c.accent, fontFamily: "monospace" }}>{score}/4</div>
@@ -545,7 +549,7 @@ export default function Scorecard() {
                 </div>
               ))}
               {criteria.filter((c) => scores[c.rank] < 3).length === 0 && (
-                <p style={{ color: "#06A77D", fontSize: 13, margin: 0 }}>No critical gaps.</p>
+                <p style={{ color: "#2DD7B9", fontSize: 13, margin: 0 }}>No critical gaps.</p>
               )}
             </div>
 
